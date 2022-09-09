@@ -229,7 +229,14 @@ return [
           'image/png',
           'image/gif',
           'image/bmp',
+          'application/pdf',
           'video/mp4',
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',//Word docx
+          'application/vnd.openxmlformats-officedocument.presentationml.presentation', //PowerPoint pptx
+          'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',//Excel xslx
+          'application/vnd.oasis.opendocument.text',// LibreOffice Writer
+          'application/vnd.oasis.opendocument.spreadsheet',// LibreOffice Calc
+          'application/vnd.oasis.opendocument.graphics',// LibreOffice Draw
         ],
         //Path for media-manager. Relative to the filesystem.
         'path'                => '/',

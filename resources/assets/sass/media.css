@@ -1,0 +1,49 @@
+.icone_excel {
+    color: #207245;
+}
+
+.icone_pdf {
+    color: #FF0000;
+}
+
+.icone_power_point {
+    color: #D14424;
+}
+
+.icone_word {
+    color: #2A5598;
+}
+
+.icone_calc {
+    background: url('/img/commun/calc.svg') no-repeat;
+    background-size: 36px;
+}
+
+.icone_draw {
+    background: url('/img/commun/draw.svg') no-repeat;
+    background-size: 36px;
+}
+
+.icone_writer {
+    background: url('/img/commun/writer.svg') no-repeat;
+    background-size: 36px;
+}
+
+.icone_media {
+    height: 36px;
+    position: relative;
+    top: 18px;
+}
+
+.icone_media_details {
+    background-size: 70px;
+    height: 170px;
+    margin: auto;
+    position: relative;
+    top: 50px;
+    width: 70px;
+}
+
+.icone_media_details_bg {
+    background: #F9F9F9;
+}

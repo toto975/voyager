@@ -80,6 +80,14 @@
         <button type="button" class="btn btn-default" v-on:click="getFiles()">
             <i class="voyager-refresh"></i>
         </button>
+        <button type="button" id="sort_asc" class="btn btn-default" v-on:click="getFiles('asc')">
+            <i class="voyager-sort-asc"></i>
+            {{ __('voyager::generic.sort_asc') }}
+        </button>
+        <button type="button" id="sort_desc" class="btn btn-default" v-on:click="getFiles('desc')">
+            <i class="voyager-sort-desc"></i>
+            {{ __('voyager::generic.sort_desc') }}
+        </button>
         <div class="btn-group offset-right">
             <button type="button" :disabled="selected_files.length == 0" v-if="allowUpload && hidden_element" class="btn btn-default" v-on:click="addSelectedFiles()">
                 <i class="voyager-upload"></i>
@@ -536,10 +544,10 @@
             }
         },
         methods: {
-            getFiles: function() {
+            getFiles: function(sort = null) {
                 var vm = this;
                 vm.is_loading = true;
-                $.post('{{ route('voyager.media.files') }}', { folder: vm.current_folder, _token: '{{ csrf_token() }}', details: vm.details }, function(data) {
+                $.post('{{ route('voyager.media.files') }}', { folder: vm.current_folder, _token: '{{ csrf_token() }}', details: vm.details, sort: sort }, function(data) {
                     vm.files = [];
                     for (var i = 0, file; file = data[i]; i++) {
                         if (vm.filter(file)) {
@@ -550,7 +558,7 @@
                     if (vm.preSelect && data.length > 0) {
                         vm.selected_files.push(data[0]);
                     }
-					vm.is_loading = false;
+                    vm.is_loading = false;
 				});
             },
             selectFile: function(file, e) {

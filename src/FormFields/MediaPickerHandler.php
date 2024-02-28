@@ -23,7 +23,11 @@ class MediaPickerHandler extends AbstractHandler
                 $content = json_encode('[]');
             }
         } else {
-            $content = "'".$dataTypeContent->{$row->field}."'";
+            //////////////////////
+            /// If filename contains a simple quote ', the field is not edited in the BREAD.
+            ///    With addslashes, it's OK
+            //////////////////////
+            $content = "'".addslashes($dataTypeContent->{$row->field})."'";
         }
 
         if (isset($options->base_path)) {

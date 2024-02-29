@@ -573,7 +573,11 @@
             },
             filter: function(file) {
                 if (this.allowedTypes.length > 0) {
-                    if (file.type != 'folder') {
+                    //////////////////////////////
+                    /// Under Windows, the 'Thumbs.db' files have a file.type = null, which goes to an error for the test if (file.type.includes(type))
+                    /// We exclude them to display
+                    //////////////////////////////
+                    if (file.type != 'folder' && file.name != 'Thumbs.db') {
                         for (var i = 0, type; type = this.allowedTypes[i]; i++) {
                             if (file.type.includes(type)) {
                                 return true;

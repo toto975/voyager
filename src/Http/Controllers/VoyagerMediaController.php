@@ -76,8 +76,7 @@ class VoyagerMediaController extends Controller
                     continue;
                 }
                 // Its a thumbnail and thumbnails should be hidden
-                if (Str::endsWith($item['path'], $thumbnail_names)) {
-                    $thumbnails[] = $item;
+                if (Str::endsWith(pathinfo($item['path'])['filename'], $thumbnail_names)) {
                     continue;
                 }
                 $mime = 'file';
